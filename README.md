@@ -45,7 +45,7 @@ Tasks:
 See https://github.com/wesen1/ac-demo-videofier
 
 - [X] Find best score time start and end timestamp + player cn
-- [ ] Download the map and required packages
+- [ ] Download the map and required packages, exit with an error if the map could not be found
 - [X] Play back and record the demo, fast forward to (start - 3s) and record until (end + 3s); spectate player cn
 
 ##### 2.1 Maps and packages
@@ -57,7 +57,10 @@ A package server should be created that provides the maps and packages for the t
 
 - [ ] Collect all known and working gema maps (maybe in a git repository, one directory per map name and sub directories per map revision)
 - [ ] Collect all mapmodels, textures, audio files that are required by the known gema maps
+- [ ] Filter out duplicated packages and maps
 - [ ] Verify that all packages may be distributed without violating copyrights
+- [ ] A repository like https://github.com/assaultcube/akimbo2 could be used to collect the package and maps. An alternative would be to use a new archive.org item.
+- [ ] Minimal proof of concept (1x texture, 1x mapsound, 1x mapmodel, 1x map)
 - [ ] Create a docker image for a package server with all needed maps and packages
 - [ ] Use the docker package server in the videofier's config
 
@@ -78,6 +81,74 @@ A package server should be created that provides the maps and packages for the t
 - [ ] Add link to YouTube video and demo file to run info
 - [ ] Auto verify the run
 - [ ] Handle API limit (retry later when no new requests are allowed at the moment)
+- [ ] Add this data to the submissions:
+  - [ ] Category: Any%
+  - [ ] Player: ingame name (guest, not linked to a speedrun.com user)
+  - [ ] Level: gema map name
+  - [ ] Time: Calculated time
+  - [ ] Variables:
+    - [ ] Weapon: Score weapon
+    - [ ] Version: 1.2.0.2
+  - [ ] Platform: PC
+  - [ ] Date: Demo date
+  - [ ] Video link: `<Link to YouTube video>`
+  - [ ] Description: `<Link to demo on archive.org>`
+
+
+### 6. Fill the leaderboards with scores for high quality gema maps
+
+The leaderboards for some of the best maps should be set up first to give the best possible impression of gema to new players.
+These maps could include:
+
+* Ac_SuperGemaBySuCkeRs
+* GEMA-12-by-Phoenix94
+* GEMA-13-by-Phoenix
+* Gema-By-Morrigan
+* Gema-by-Patroclus
+* gema-cityonfire
+* gemaClock
+* Gema_Dungeon
+* Gema_H4X
+* Gema-H4X-Castle
+* gema_horror
+* Gema_Kazumi
+* gema_la_momie
+* Gema-Magic
+* gema.manfestoeh.forexperts
+* gema.manfestoeh.streetchase
+* Gema-Mines
+* Gema_Of_Thrones
+* gema_shorty
+* GemaWinter
+* Gibbed-Gema10
+* gibbed-gema11
+* Gibbed-Gema12
+* gibbed-gema3
+* gibbed-gema7
+* gladi-gema1
+* MountainGema
+* RooftopGema
+* SE-GEMA-PARKING
+* Shuffles_Gema-2
+* UrbanGema
+* XX_Olympic_TimeRun_GEMA
+
+Other good maps might be:
+
+* CheapGema
+* Foxy-grim_gema
+* Gema2_Arnold
+* GEMA-4.0_Phoenix.94
+* GEMA-7-by-Phoenix94
+* Gema-Alcatraz-by-Patroclus
+* gema_BOW
+* gema_BOW-4
+* Gema-BR
+* GEMA_I_HATE_PALM_TREES
+* gema_SAW
+* Gema_Tuty
+* gema_warm_up
+* PG_Pickup_gema
 
 
 ### Future Features
@@ -85,6 +156,7 @@ A package server should be created that provides the maps and packages for the t
 #### Server that provides an API for authorized servers to submit new runs
 
 - [ ] Set up a HTTP server to which you can send "run submit" requests, these requests would be processed by the tool, then gema servers can send requests to that server on map change
+  - [ ] Sibling docker containers are required for this (HTTP server runs inside docker container and needs to trigger actions in docker containers on the docker host)
 - [ ] Allow the tool to load a fixed map ignoring the one that the demo requires (for duplicated maps)
 - [ ] Sync the already existing maptops to speedrun.com
 
