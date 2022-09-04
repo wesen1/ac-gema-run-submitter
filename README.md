@@ -50,6 +50,8 @@ See https://github.com/wesen1/ac-demo-videofier
 
 ##### 2.1 Maps and packages
 
+See https://github.com/wesen1/ac-package-server
+
 Maps and packages should be auto downloaded by the videofier tool.
 For this all relevant maps and all packages that they require must be collected.
 
@@ -66,6 +68,9 @@ A package server should be created that provides the maps and packages for the t
 
 
 #### 3. Upload the demo to archive.org
+
+See https://github.com/wesen1/internetarchive-docker
+
 - [X] Plan a directory structure (one item per map, sub directories for every 1000 demos?)
 - [X] Check if the demo was already uploaded
 - [X] Rename the new demo file if a different demo with the same name was already uploaded
@@ -78,6 +83,9 @@ A package server should be created that provides the maps and packages for the t
 
 
 #### 5. Submit the run to speedrun.com
+
+See https://github.com/wesen1/speedrun-com-run-submitter
+
 - [ ] Add link to YouTube video and demo file to run info
 - [ ] Auto verify the run
 - [ ] Handle API limit (retry later when no new requests are allowed at the moment)
